@@ -1,5 +1,6 @@
 import express from 'express';
 import fs from 'fs';
+import * as punycode from 'node:punycode';
 
 const app = express();
 
@@ -171,7 +172,8 @@ app.get('/', (req, res) => {
     }
 
     const url = new URL(req.originalUrl, `http://${req.headers.host}`);
-    const domain = url.hostname;
+    const rawDomain = url.hostname;
+    const domain = punycode.toUnicode(rawDomain);
     const isSubdomain = domain.split('.').length > 2;
 
     const split = domain.split(`.${baseDomain}`);
