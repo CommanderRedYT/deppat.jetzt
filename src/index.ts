@@ -23,9 +23,7 @@ const requestCounter: Record<
 
 function extractSenderIp(req: express.Request): string {
     return (
-        (req.headers['x-forwarded-for'] as string) ||
-        req.socket.remoteAddress ||
-        ''
+        (req.headers['x-real-ip'] as string) || req.socket.remoteAddress || ''
     );
 }
 
