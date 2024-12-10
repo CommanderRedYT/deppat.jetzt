@@ -1,6 +1,8 @@
 services:
   deppat:
     image: ghcr.io/commanderredyt/deppat.jetzt:latest
+    volumes:
+      - ./deppat.txt:/app/deppat.txt
     restart: unless-stopped
     ports:
       - "127.0.0.1:5050:3000"
