@@ -52,6 +52,7 @@ const gehtMirAmArsch = `
 <html lang="de">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Schleich di!</title>
     <style>
         @keyframes movingBackground {
@@ -190,7 +191,7 @@ app.get('/', (req, res) => {
         : 'Ois';
 
     res.send(
-        `<head><style>#deppat{font-family:'Comic Sans MS',cursive,sans-serif;font-weight:bold}</style><title>Ois deppat!</title></head>${name} is scho wieda komplett <span id="deppat">deppat</span>!${isSubdomain ? '' : '🤪'}`,
+        `<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><style>#deppat{font-family:'Comic Sans MS',cursive,sans-serif;font-weight:bold}</style><title>Ois deppat!</title></head>${name} is scho wieda komplett <span id="deppat">deppat</span>!${isSubdomain ? '' : '🤪'}`,
     );
 });
 
