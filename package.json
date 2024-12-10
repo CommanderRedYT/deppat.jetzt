@@ -1,0 +1,38 @@
+{
+  "name": "deppat.jetzt",
+  "version": "1.0.0",
+  "description": "",
+  "main": "dist/index.js",
+  "scripts": {
+    "dev": "ts-node-dev --respawn --transpile-only -r tsconfig-paths/register src/index.ts",
+    "start": "ts-node -r tsconfig-paths/register src/index.ts",
+    "lint": "eslint . --ext .ts",
+    "typecheck": "tsc --noEmit"
+  },
+  "engines": {
+    "node": ">=22"
+  },
+  "dependencies": {
+    "express": "^4.21.2",
+    "ts-node": "^10.9.2",
+    "tsconfig-paths": "^4.2.0"
+  },
+  "devDependencies": {
+    "@microsoft/eslint-formatter-sarif": "^3.1.0",
+    "@types/express": "^5.0.0",
+    "@typescript-eslint/eslint-plugin": "^7.18.1-alpha.3",
+    "@typescript-eslint/parser": "^7.18.1-alpha.3",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-config-airbnb-typescript": "^18.0.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-deprecation": "^3.0.0",
+    "eslint-plugin-import": "^2.31.0",
+    "eslint-plugin-no-relative-import-paths": "^1.5.5",
+    "eslint-plugin-prettier": "^5.2.1",
+    "eslint-plugin-simple-import-sort": "^12.1.1",
+    "prettier": "^3.4.2",
+    "ts-node-dev": "^2.0.0",
+    "typescript": "^5.5.3"
+  },
+  "private": true
+}
