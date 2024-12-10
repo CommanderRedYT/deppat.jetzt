@@ -2,7 +2,7 @@
 
 # check if docker-compose or docker compose
 if [ -x "$(command -v docker-compose)" ]; then
-  docker-compose -f docker-compose.prod.yml up -d deppat
+  docker-compose -f docker-compose.yml up -d deppat
 else
-  docker compose -f docker-compose.prod.yml up -d deppat
+  docker compose -f docker-compose.yml up -d deppat
 fi
