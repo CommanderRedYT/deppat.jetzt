@@ -40,12 +40,7 @@ function handleFunnyRequests(ip: string): boolean {
         requestCounter[ip].count = 0;
     }
 
-    if (requestCounter[ip].count > 10) {
-        requestCounter[ip].count = 0;
-        return true;
-    }
-
-    return false;
+    return requestCounter[ip].count > 10;
 }
 
 const textOutline = (color: string): string =>
@@ -165,9 +160,6 @@ app.get('/', (req, res) => {
         };
     }
 
-    requestCounter[ip].count += 1;
-    requestCounter[ip].lastRequest = new Date();
-
     // set isFunny to true if more than 10 requests from the same IP in the last 10 seconds
     const isFunny = handleFunnyRequests(ip);
 
@@ -181,6 +173,9 @@ app.get('/', (req, res) => {
         res.status(429).send(gehtMirAmArsch);
         return;
     }
+
+    requestCounter[ip].count += 1;
+    requestCounter[ip].lastRequest = new Date();
 
     const url = new URL(req.originalUrl, `http://${req.headers.host}`);
     const rawDomain = url.hostname;
