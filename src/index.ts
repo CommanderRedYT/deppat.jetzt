@@ -1,6 +1,6 @@
 import express from 'express';
 import fs from 'fs';
-import * as punycode from 'node:punycode';
+import * as punycode from 'punycode/';
 
 const app = express();
 
