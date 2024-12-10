@@ -31,6 +31,8 @@ RUN adduser --system --uid 1001 nodejs
 
 USER nodejs
 
+RUN chown -R nodejs:nodejs /app
+
 EXPOSE 3000
 
 CMD ["yarn", "start"]
