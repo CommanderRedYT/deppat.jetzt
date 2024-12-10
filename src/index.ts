@@ -40,7 +40,12 @@ function handleFunnyRequests(ip: string): boolean {
         requestCounter[ip].count = 0;
     }
 
-    return requestCounter[ip].count > 10;
+    if (requestCounter[ip].count > 10) {
+        requestCounter[ip].count = 0;
+        return true;
+    }
+
+    return false;
 }
 
 const textOutline = (color: string): string =>
