@@ -1,8 +1,13 @@
 import express from 'express';
 import fs from 'fs';
+import morgan from 'morgan';
 import * as punycode from 'punycode/';
 
 const app = express();
+
+const isDev = process.env.NODE_ENV === 'development';
+
+app.use(morgan(isDev ? 'dev' : 'combined'));
 
 const port = process.env.PORT || 3000;
 
@@ -162,10 +167,11 @@ app.get('/', (req, res) => {
     const isFunny = handleFunnyRequests(ip);
 
     if (isFunny) {
-        fs.appendFileSync(
-            './deppat.txt',
-            `${ip} - ${requestCounter[ip].lastRequest.toISOString()}\n`,
-        );
+        const content = `${ip} - ${requestCounter[ip].lastRequest.toISOString()}\n`;
+
+        console.log(content);
+
+        fs.appendFileSync('./deppat.txt', content);
 
         res.status(429).send(gehtMirAmArsch);
         return;
