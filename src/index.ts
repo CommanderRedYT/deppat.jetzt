@@ -7,6 +7,8 @@ const app = express();
 
 const isDev = process.env.NODE_ENV === 'development';
 
+app.enable('trust proxy');
+
 app.use(morgan(isDev ? 'dev' : 'combined'));
 
 const port = process.env.PORT || 3000;
