@@ -183,7 +183,11 @@ app.get('/', (req, res) => {
     const isSubdomain = domain.split('.').length > 2;
 
     const split = domain.split(`.${baseDomain}`);
-    const name = isSubdomain ? split[0] : 'Ois';
+    const name = isSubdomain
+        ? split[0]
+              .replace(/-/g, ' ')
+              .replace(/\b\w/g, char => char.toUpperCase())
+        : 'Ois';
 
     res.send(
         `<head><style>#deppat{font-family:'Comic Sans MS',cursive,sans-serif;font-weight:bold}</style><title>Ois deppat!</title></head>${name} is scho wieda komplett <span id="deppat">deppat</span>!${isSubdomain ? '' : '🤪'}`,
