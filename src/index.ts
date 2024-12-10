@@ -162,7 +162,7 @@ app.get('/', (req, res) => {
 
     if (isFunny) {
         fs.appendFileSync(
-            'deppat.txt',
+            './deppat.txt',
             `${ip} - ${requestCounter[ip].lastRequest.toISOString()}\n`,
         );
 
