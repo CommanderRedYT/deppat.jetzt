@@ -1,8 +1,10 @@
 #!/bin/bash
 
+# for test, always build before running
+
 # check if docker-compose or docker compose
 if [ -x "$(command -v docker-compose)" ]; then
-  docker-compose -f docker-compose.yml up -d test
+  docker-compose -f docker-compose.yml up --build test
 else
-  docker compose -f docker-compose.yml up -d test
+  docker compose -f docker-compose.yml up --build test
 fi
