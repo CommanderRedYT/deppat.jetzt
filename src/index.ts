@@ -189,6 +189,10 @@ app.get('/', (req, res) => {
     const split = domain.split(`.${baseDomain}`);
     const name = isSubdomain ? split[0].replace(/-/g, ' ') : 'Ois';
 
+    console.log(
+        `Request for ${name} from with rawDomain=${rawDomain} name=${name} isSubdomain=${isSubdomain}`,
+    );
+
     res.send(
         `<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><style>#deppat{font-family:'Comic Sans MS',cursive,sans-serif;font-weight:bold}</style><title>Ois deppat!</title></head>${capitalize(name)} is scho wieda komplett <span id="deppat">deppat</span>!${isSubdomain ? '' : '🤪'}`,
     );
