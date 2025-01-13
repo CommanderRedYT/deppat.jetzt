@@ -187,7 +187,12 @@ app.get('/', (req, res) => {
     const isSubdomain = domain.split('.').length > 2;
 
     const split = domain.split(`.${baseDomain}`);
-    const name = isSubdomain ? split[0].replace(/-/g, ' ') : 'Ois';
+    let name = isSubdomain ? split[0].replace(/-/g, ' ') : 'Ois';
+
+    // replace all '.' with ' ' in subdomain
+    if (isSubdomain) {
+        name = name.replace(/\./g, ' ');
+    }
 
     console.log(
         `Request for ${name} from with rawDomain=${rawDomain} name=${name} isSubdomain=${isSubdomain}`,
