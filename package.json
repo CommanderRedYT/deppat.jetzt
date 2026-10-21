@@ -10,7 +10,7 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "express": "^4.21.2",
+    "express": "^5.3.0",
     "morgan": "^1.10.0",
     "punycode": "^2.3.1",
     "ts-node": "^10.9.2",
